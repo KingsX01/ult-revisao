@@ -1,76 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://unpkg.com/feather-icons"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>GitHub Card Maker</title>
+    <style>
+      * {
+        transition: all 500ms;
+      }
+
+      input {
+        width: 100% !important;
+        display: block !important;
+        padding: 0.75rem !important;
+        border-radius: 8px !important;
+        outline-color: transparent;
+        outline-width: 1px !important;
+      }
+
+      input:focus {
+        outline-color: #9333ea;
+      }
+      :disabled {
+        background-color: #ddd;
+        color: #9333ea !important;
+      }
+      label {
+        display: block;
+        padding: 0.5rem 0;
+        color: #333;
+      }
+    </style>
   </head>
-  <body class="bg-gray-700 h-screen flex w-full">
-    <div class="grid grid-row-2 w-4/6 self-center mx-auto gap-4">
-      <div class="flex items-center justify-center gap-4">
-        <input
-          type="text"
-          name="name"
-          id="name"
-          class="w-full p-2 border border-gray-300 rounded-md"
-          placeholder="Nome de usuário"
-        />
-        <button
-          class="p-2 border bg-green-600 text-white hover:bg-green-500 transition-all rounded-md"
-          id="btnCriar"
-        >
-          Criar
-        </button>
-      </div>
-      <div class="px-6 bg-white mt-20">
-        <div class="flex flex-wrap justify-center">
-          <div class="w-full flex justify-center">
-            <div class="relative">
-              <img
-                id="userPhoto"
-                src="https://github.com/creativetimofficial/soft-ui-dashboard-tailwind/blob/main/build/assets/img/team-2.jpg?raw=true"
-                class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
-              />
-            </div>
+  <body class="bg-gray-200 flex items-center justify-center h-screen">
+    <div class="flex flex-col border border-purple-600 rounded-lg w-10/12 p-8">
+      <h1 class="text-center font-semibold text-xl">Consultar Endereço</h1>
+        <!-- Inicio do formulário -->
+
+      <form class="w-full">
+        <div class="flex flex-col items-start justify-center">
+          <label for="cep">CEP</label>
+          <div class="w-full flex gap-2">
+            <input type="text" name="cep" placeholder="00000-000" />
+            <button
+              class="bg-purple-600 p-2 rounded-lg text-white hover:bg-purple-800"
+            >
+              <i data-feather="search"></i>
+            </button>
           </div>
         </div>
-        <div class="text-center mt-24">
-          <h3
-            id="userName"
-            class="text-2xl text-slate-700 font-bold leading-normal mb-1"
-          >
-            Mike Thompson
-          </h3>
-          <div
-            id="userLocation"
-            class="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase"
-          >
-            Paris, France
-          </div>
+
+        <div>
+          <label for="logradouro">Logradouro</label>
+          <input
+            type="text"
+            name="logradouro"
+            placeholder="Rua dos bobos"
+            disabled
+          />
         </div>
-        <div class="mt-6 py-6 border-t border-slate-200 text-center">
-          <div class="flex flex-wrap justify-center">
-            <div class="w-full px-4">
-              <p
-                id="userBio"
-                class="font-light leading-relaxed text-slate-600 mb-4"
-              >
-                An artist of considerable range, Mike is the name taken by
-                Melbourne-raised, Brooklyn-based Nick Murphy writes, performs
-                and records all of his own music, giving it a warm.
-              </p>
-              <a
-                id="userLink"
-                class="font-normal text-slate-700 hover:text-slate-400"
-                >Abrir Perfil</a
-              >
-            </div>
-          </div>
+
+        <div>
+          <label for="bairro">Bairro</label>
+          <input type="text" name="bairro" placeholder="Centro" disabled />
         </div>
-      </div>
+        <div>
+          <label for="localidade">Localidade</label>
+          <input
+            type="text"
+            name="localidade"
+            placeholder="Rio de Janeiro"
+            disabled
+          />
+        </div>
+
+        <div>
+          <label for="uf">UF</label>
+          <input type="text" name="uf" placeholder="RJ" disabled />
+        </div>
+      </form>
+      <!-- Fim do formulário -->
     </div>
-    <script src="functions.js"></script>
+    <script>
+      feather.replace();
+    </script>
   </body>
 </html>
